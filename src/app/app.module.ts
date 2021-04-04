@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CocktailsListComponent } from './cocktails-list/cocktails-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
@@ -18,13 +19,18 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'list'
+  },
+  {
+    path: '**',
+    component: NotFoundPageComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CocktailsListComponent
+    CocktailsListComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
