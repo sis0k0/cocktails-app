@@ -9,11 +9,16 @@ import { CocktailsListComponent } from './cocktails-list/cocktails-list.componen
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { CocktailDetailsComponent } from './cocktail-details/cocktail-details.component';
 
 const routes: Routes = [
   {
     path: 'list',
     component: CocktailsListComponent
+  },
+  {
+    path: 'cocktail/:id',
+    component: CocktailDetailsComponent
   },
   {
     path: '',
@@ -30,7 +35,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CocktailsListComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    CocktailDetailsComponent
   ],
   imports: [
     BrowserModule,
