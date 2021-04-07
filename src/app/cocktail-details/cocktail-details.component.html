@@ -1,10 +1,12 @@
-<div>
-    <div cds-layout="grid cols:auto gap:xl align:horizontal-center" *ngIf="cocktail$ | async as cocktail; else loading">
-        <img height="350px" [src]="cocktail.strDrinkThumb" />
+<div class="card" cds-layout="grid cols@sm:6 cols@md:auto align:horizontal-center" *ngIf="cocktail$ | async as cocktail; else loading">
+    <img cds-layout="m:lg" width="80%" [src]="cocktail.strDrinkThumb" />
 
-        <section>
+    <section>
+        <div class="card-header">
             <h3>{{ cocktail.strDrink }}</h3>
+        </div>
 
+        <div class="card-block">
             <h4>Category</h4>
             <p>{{ cocktail.strCategory }}, {{ cocktail.strAlcoholic }} </p>
 
@@ -13,10 +15,10 @@
 
             <h4>Instructions</h4>
             <p>{{ cocktail.strInstructions }}</p>
-        </section>
-    </div>
-
-    <ng-template #loading>
-        <cds-progress-circle size="xl" aria-label="Cocktails are loading"></cds-progress-circle>
-    </ng-template>
+        </div>
+    </section>
 </div>
+
+<ng-template #loading>
+    <cds-progress-circle size="xl" aria-label="Cocktail is loading"></cds-progress-circle>
+</ng-template>
