@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { CocktailService } from '../cocktail.service';
 import '@cds/core/progress-circle/register.js';
+import { CocktailService } from '../cocktail.service';
+import { Cocktail } from '../cocktail.model';
 
 @Component({
   selector: 'app-cocktail-details',
@@ -11,7 +12,7 @@ import '@cds/core/progress-circle/register.js';
   styleUrls: ['./cocktail-details.component.css']
 })
 export class CocktailDetailsComponent implements OnInit {
-  cocktail$: Observable<any>;
+  cocktail$: Observable<Cocktail>;
 
   constructor(
     private route: ActivatedRoute,

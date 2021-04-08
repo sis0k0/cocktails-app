@@ -36,7 +36,7 @@ const routes: Routes = [
     AppComponent,
     CocktailsListComponent,
     NotFoundPageComponent,
-    CocktailDetailsComponent
+    CocktailDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,18 +5,18 @@
         <th>Category</th>
         <th>Alcoholic</th>
         <th>Glass</th>
-        <th>Main ingredient</th>
+        <th>Ingredients</th>
         <th>Details</th>
     </thead>
     <tbody>
-        <tr *ngFor="let cocktail of cocktails$ | async as list; index as i">
+        <tr *ngFor="let cocktail of cocktails$ | async; index as i">
             <td>{{ i + 1 }}</td>
-            <td>{{ cocktail.strDrink }}</td>
-            <td>{{ cocktail.strCategory }}</td>
-            <td>{{ cocktail.strAlcoholic }}</td>
-            <td>{{ cocktail.strGlass }}</td>
-            <td>{{ cocktail.strIngredient1 }}</td>
-            <td><a [routerLink]="['/cocktail', cocktail.idDrink]">See more</a></td>
+            <td>{{ cocktail.name }}</td>
+            <td>{{ cocktail.category }}</td>
+            <td>{{ cocktail.alcoholic }}</td>
+            <td>{{ cocktail.glass }}</td>
+            <td>{{ cocktail.ingredients.join(', ') }}</td>
+            <td><a [routerLink]="['/cocktail', cocktail.id]">See more</a></td>
         </tr>
     </tbody>
 </table>
