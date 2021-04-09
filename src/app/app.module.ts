@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { CocktailDetailsComponent } from './cocktail-details/cocktail-details.component';
 import { CocktailDetailsResolver } from './cocktail-details.resolver';
+import { AuthGuard } from './auth.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   {
@@ -20,9 +22,16 @@ const routes: Routes = [
   {
     path: 'cocktail/:id',
     component: CocktailDetailsComponent,
+    canActivate: [
+      AuthGuard
+    ],
     resolve: {
       cocktail: CocktailDetailsResolver
     }
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent
   },
   {
     path: '',
@@ -41,6 +50,7 @@ const routes: Routes = [
     CocktailsListComponent,
     NotFoundPageComponent,
     CocktailDetailsComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,
