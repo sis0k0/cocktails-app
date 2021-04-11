@@ -13,6 +13,7 @@ import { CocktailDetailsComponent } from './cocktail-details/cocktail-details.co
 import { CocktailDetailsResolver } from './cocktail-details.resolver';
 import { AuthGuard } from './auth.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,18 @@ const routes: Routes = [
   {
     path: 'unauthorized',
     component: UnauthorizedComponent
+  },
+  {
+    path: 'admin/users', 
+    component: UsersComponent,
+    canActivate: [
+      AuthGuard
+    ]
+  },
+  {
+    path: 'admin',
+    pathMatch: 'full',
+    redirectTo: 'admin/users'
   },
   {
     path: '',
