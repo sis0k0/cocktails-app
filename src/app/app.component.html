@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="header-nav">
-      <a routerLink="" [routerLinkActive]="'active'" class="nav-link nav-text">Home</a>
+      <a routerLink="list" [routerLinkActive]="'active'" class="nav-link nav-text">Home</a>
       <a routerLink="admin" [routerLinkActive]="'active'" class="nav-link nav-text">Admin</a>
       <a (click)="logIn()" *ngIf="!loggedIn" class="nav-link nav-text">Log in</a>
       <a (click)="logOut()" *ngIf="loggedIn" class="nav-link nav-text">Log out</a>
