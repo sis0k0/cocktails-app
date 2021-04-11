@@ -35,16 +35,11 @@ const routes: Routes = [
     component: UnauthorizedComponent
   },
   {
-    path: 'admin/users', 
-    component: UsersComponent,
-    canActivate: [
+    path: 'admin', 
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [
       AuthGuard
     ]
-  },
-  {
-    path: 'admin',
-    pathMatch: 'full',
-    redirectTo: 'admin/users'
   },
   {
     path: '',
